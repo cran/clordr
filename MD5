@@ -1,0 +1,14 @@
+62ee29fd5c5b0dd1db870901d9ef2f8a *DESCRIPTION
+b933008a55293f60344c7190e745cda9 *NAMESPACE
+16b78a769d7349e428baddc8a0dd0c97 *R/cl.R
+81ca3fa346e237d99af43eaf1348a4c9 *R/cl.rord.R
+68d82e0c53a6a223c19102187fd4f10d *R/cl_l.R
+57595bc022386558452dc019df928ac6 *R/cle.rord.R
+85e03efdf48939316a875ab0cbdaec39 *R/clic.R
+72292e35b55001e58b693c8c41306538 *R/sim_data.R
+3b077a4e8a41679a2ed875aa33626e32 *man/cl.Rd
+b6bbc24b3b45a7da25c5f5a121d4cdaa *man/cl.rord.Rd
+1fe7c6049e5d67a19255e7a9c8a35f72 *man/cl_l.Rd
+871b4a4d0a2d14a69a60efc38166ee3a *man/cle.rord.Rd
+e922b88fbce5c7812aaf3d1cb850708b *man/clic.Rd
+eaff685d0b237967f8ea73bbcd1f4f97 *man/sim.rord.Rd
