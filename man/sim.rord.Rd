@@ -4,7 +4,7 @@
 \alias{sim.rord}
 \title{Simulation of Replciations of Spatial Ordinal Data}
 \usage{
-sim.rord(n.subject, n.site, n.rep = 100, midalpha, beta, sigma2, phi, covar,
+sim.rord(n.subject, n.site, n.rep = 100, midalpha, beta, phi, sigma2, covar,
   location)
 }
 \arguments{
@@ -19,9 +19,9 @@ Parameter inputs include:}
 
 \item{beta}{regression coefficient;}
 
-\item{sigma2}{sigma^2 (variance) for the spatial dependence; and}
+\item{phi}{dependence parameter for spatial dependence; and}
 
-\item{phi}{dependence parameter for spatial dependence.}
+\item{sigma2}{sigma^2 (variance) for the spatial dependence.}
 
 \item{covar}{regression (design) matrix, including intercepts.}
 
@@ -40,7 +40,7 @@ n.lat <- n.lon <- 10
 n.site <- n.lat*n.lon
 
 beta <- c(1,2,-1) # First 1 here is the intercept
-midalpha <- c(1.15, 2.18) ; sigma2 <- 0.7 ; phi <- 0.8
+midalpha <- c(1.15, 2.18) ; phi <- 0.8 ; sigma2 <- 0.7
 
 true <- c(midalpha,beta,sigma2,phi)
 
@@ -54,7 +54,7 @@ Xi <- rnorm(n.subject,0,1) ; Xj <- rbinom(n.site,1,0.6)
  }
 
 location <- cbind(rep(seq(1,n.lat,length=n.lat),n.lat),rep(1:n.lon, each=n.lon))
-sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, sigma2, phi, covar=VV, location)
+sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, phi, sigma2, covar=VV, location)
 
 length(sim.data)
 head(sim.data[[1]])

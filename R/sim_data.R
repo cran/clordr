@@ -8,8 +8,8 @@
 #' Parameter inputs include:
 #' @param midalpha cutoff parameter (excluding -Inf and +Inf);
 #' @param beta regression coefficient;
-#' @param sigma2 sigma^2 (variance) for the spatial dependence; and
-#' @param phi dependence parameter for spatial dependence.
+#' @param phi dependence parameter for spatial dependence; and
+#' @param sigma2 sigma^2 (variance) for the spatial dependence.
 #' @param covar regression (design) matrix, including intercepts.
 #' @param location a matrix contains spatial location of sites within each subject.
 #'
@@ -22,7 +22,7 @@
 #' n.site <- n.lat*n.lon
 #'
 #' beta <- c(1,2,-1) # First 1 here is the intercept
-#' midalpha <- c(1.15, 2.18) ; sigma2 <- 0.7 ; phi <- 0.8
+#' midalpha <- c(1.15, 2.18) ; phi <- 0.8 ; sigma2 <- 0.7
 #'
 #' true <- c(midalpha,beta,sigma2,phi)
 #'
@@ -36,7 +36,7 @@
 #'  }
 #'
 #' location <- cbind(rep(seq(1,n.lat,length=n.lat),n.lat),rep(1:n.lon, each=n.lon))
-#' sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, sigma2, phi, covar=VV, location)
+#' sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, phi, sigma2, covar=VV, location)
 #'
 #' length(sim.data)
 #' head(sim.data[[1]])
@@ -45,7 +45,7 @@
 
 
 
-sim.rord <- function(n.subject, n.site, n.rep = 100, midalpha, beta, sigma2, phi, covar, location) {
+sim.rord <- function(n.subject, n.site, n.rep = 100, midalpha, beta, phi, sigma2, covar, location) {
 
   N <- n.site ; n <- n.subject
 

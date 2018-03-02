@@ -11,4 +11,12 @@ importFrom("MASS", "polr")
 
 importFrom("pbivnorm", "pbivnorm")
 
-import("numDeriv")
+import("ttutils")
+
+importFrom("rootSolve", "multiroot")
+
+importFrom("foreach", "foreach", "%dopar%")
+
+importFrom("parallel", "detectCores", "makeCluster","stopCluster")
+
+importFrom("doParallel", "registerDoParallel")

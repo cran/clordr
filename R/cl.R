@@ -74,11 +74,11 @@ cl<-function(theta,y,X,dwdv,cmwdv,lt,wn,base,J,p) {
       X2hi <- rbind(X2hi, X2hi0[[g]])
     }
   }
-  ### b contains all alfa and beta; alfa0=-10^4; alfaJ = 10^4###
-  Mu2hh = cbind(X1hi%*%b,X2hi%*%b) # b contains all alfa and beta
-  Mu2ll = cbind(X1lo%*%b,X2lo%*%b) # b contains all alfa and beta
-  Mu2hl= cbind(X1hi%*%b,X2lo%*%b)  # b contains all alfa and beta
-  Mu2lh = cbind(X1lo%*%b,X2hi%*%b) # b contains all alfa and beta
+  ### b contains all alpha and beta; alpha0=-10^4; alphaJ = 10^4###
+  Mu2hh = cbind(X1hi%*%b,X2hi%*%b)
+  Mu2ll = cbind(X1lo%*%b,X2lo%*%b)
+  Mu2hl= cbind(X1hi%*%b,X2lo%*%b)
+  Mu2lh = cbind(X1lo%*%b,X2hi%*%b)
   rr =  theta[lt]*(1+theta[lt-1]*Dwdv2)*exp(-theta[lt-1]*Dwdv2)
   de = 1-rr^2
   sde = sqrt(de)
