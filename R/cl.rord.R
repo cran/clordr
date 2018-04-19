@@ -1,6 +1,6 @@
 #' Composite Likelihood Calculation for Replciations of Spatial Ordinal Data (for illustration)
 #'
-#' \code{cl.rord} Calculate the  composite log-likelihood value for replications of spatial ordinal data at given value of parameter value.
+#' \code{cl.rord} Calculate the negative composite log-likelihood value for replications of spatial ordinal data at given value of parameter value.
 #' Note that this function is not directly used in \code{cle.rord} but illustration only.
 #'
 #' @param theta a vector of parameter value

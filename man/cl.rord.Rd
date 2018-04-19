@@ -21,7 +21,7 @@ cl.rord(theta, response, covar, location, radius = 4)
 \code{cl.rord} returns a list: negative composite log-likelihood, a vector of first-order partial derivatives for \code{theta}.
 }
 \description{
-\code{cl.rord} Calculate the  composite log-likelihood value for replications of spatial ordinal data at given value of parameter value.
+\code{cl.rord} Calculate the negative composite log-likelihood value for replications of spatial ordinal data at given value of parameter value.
 Note that this function is not directly used in \code{cle.rord} but illustration only.
 }
 \examples{

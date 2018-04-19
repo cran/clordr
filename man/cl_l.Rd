@@ -31,5 +31,5 @@ cl_l(theta, y, X, dwdv, cmwdv, lt, wn, base, J, p)
 \code{cl} returns a list: composite log-likelihood value and a vector of first-order partial derivatives for \code{theta}.
 }
 \description{
-\code{cl_l} Calculate the composite log-likelihood value for a particular subject given parameter value and other input variables
+\code{cl_l} Calculate the negative composite log-likelihood value for a particular subject given parameter value and other input variables
 }

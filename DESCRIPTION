@@ -2,7 +2,7 @@ Package: clordr
 Type: Package
 Title: Composite Likelihood Inference for Spatial Ordinal Data with
         Replications
-Version: 1.2.0
+Version: 1.3.0
 Authors@R: c(person("Ting Fung (Ralph)", "Ma", email = "tingfung.ma@wisc.edu", role = c("cre", "aut")),
     person("Pingping", "Wang", email = "catherinewpp@126.com", role = "aut"),
     person("Jun", "Zhu", email = "jzhu@stat.wisc.edu", role = "aut"),
@@ -18,11 +18,11 @@ Imports: pbivnorm (>= 0.6.0), MASS (>= 7.3-45), rootSolve (>= 1.7),
         doParallel (>= 1.0.11), foreach (>= 1.2.0), utils, stats,
         ttutils
 NeedsCompilation: no
-Packaged: 2018-03-02 07:55:12 UTC; Ralph
+Packaged: 2018-04-19 05:50:11 UTC; Ralph
 Author: Ting Fung (Ralph) Ma [cre, aut],
   Pingping Wang [aut],
   Jun Zhu [aut],
   Dipankar Bandyopadhyay [ctb],
   Yincai Tang [ctb]
 Repository: CRAN
-Date/Publication: 2018-03-02 09:18:29 UTC
+Date/Publication: 2018-04-19 10:13:04 UTC

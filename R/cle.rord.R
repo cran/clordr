@@ -210,7 +210,7 @@ cle.rord <- function(response, covar, location ,radius=4, n.sim=100, output = TR
   mat.asyvar <- mat.H.inv %*% mat.J %*% mat.H.inv
 
   vec.se <- sqrt(diag(mat.asyvar))
-  CLIC <- clic(logCL= func(theta=vec.par,response = response, covar=covar),
+  CLIC <- clic(logCL= - func(theta=vec.par,response = response, covar=covar),
                mat.hessian = mat.H,mat.J = mat.J)
 }
 

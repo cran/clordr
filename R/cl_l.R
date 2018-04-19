@@ -1,6 +1,6 @@
 #' Composite Likelihood Calculation for Spatial Ordinal Data without Replications (for implmentation)
 #'
-#' \code{cl_l} Calculate the composite log-likelihood value for a particular subject given parameter value and other input variables
+#' \code{cl_l} Calculate the negative composite log-likelihood value for a particular subject given parameter value and other input variables
 #'
 #'
 #' @param theta a vector of parameter value
