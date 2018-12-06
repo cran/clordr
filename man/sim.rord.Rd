@@ -4,8 +4,8 @@
 \alias{sim.rord}
 \title{Simulation of Replciations of Spatial Ordinal Data}
 \usage{
-sim.rord(n.subject, n.site, n.rep = 100, midalpha, beta, phi, sigma2, covar,
-  location)
+sim.rord(n.subject, n.site, n.rep = 100, midalpha, beta, phi, sigma2,
+  covar, location)
 }
 \arguments{
 \item{n.subject}{number of subjects.}

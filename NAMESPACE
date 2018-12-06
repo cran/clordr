@@ -4,12 +4,14 @@ exportPattern("^[[:alpha:]]+")
 importFrom("stats", "cov", "dist", "dnorm", "optim", "pnorm",
              "rnorm","runif")
 
-importFrom("utils", "combn","tail")
+importFrom("utils", "combn","tail", "flush.console")
 
 importFrom("MASS", "polr")
 
 
 importFrom("pbivnorm", "pbivnorm")
+
+importFrom("tmvmixnorm", "rtmvn")
 
 import("ttutils")
 
