@@ -4,8 +4,18 @@
 \alias{surrogate.residual}
 \title{Surrogate Residuals for Replciations of Spatial Ordinal Data}
 \usage{
-surrogate.residual(response, covar, location, seed = NULL, midalpha,
-  beta, sigma2, phi, burn.in = 20, output = TRUE)
+surrogate.residual(
+  response,
+  covar,
+  location,
+  seed = NULL,
+  midalpha,
+  beta,
+  sigma2,
+  phi,
+  burn.in = 20,
+  output = TRUE
+)
 }
 \arguments{
 \item{response}{a matrix of observation (row: spatial site and column: subject).}
@@ -63,7 +73,7 @@ location <- cbind(rep(seq(1,n.lat,length=n.lat),n.lat),rep(1:n.lon, each=n.lon))
 response <- sim.rord(n.subject, n.site, n.rep = 1,
 midalpha, beta, phi, sigma2, covar=VV, location)[[1]]
 
-\dontrun{
+\donttest{
 # Example for linearity of covariate
 sur.resid <- surrogate.residual(response, covar=VV, location, seed =1,
 midalpha, beta, sigma2, phi,

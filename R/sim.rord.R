@@ -15,6 +15,10 @@
 #'
 #' @return \code{sim.rord} returns a list (length \code{n.rep}) of matrix (\code{n.subject*n.site}) with the underlying parameter as inputs.
 #'
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#'
+#' @export
+#'
 #' @examples
 #' set.seed(1203)
 #' n.subject <- 100

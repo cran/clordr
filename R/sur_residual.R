@@ -20,6 +20,8 @@
 #' @return \code{surrogate.residual} returns a (no. spatial site * no. subject) matrix contains
 #' raw surrogate residuals with element corresponds to the response matrix.
 #'
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @export
 #'
 #' @examples
 #' set.seed(1228)
@@ -45,7 +47,7 @@
 #' response <- sim.rord(n.subject, n.site, n.rep = 1,
 #' midalpha, beta, phi, sigma2, covar=VV, location)[[1]]
 #'
-#' \dontrun{
+#' \donttest{
 #' # Example for linearity of covariate
 #' sur.resid <- surrogate.residual(response, covar=VV, location, seed =1,
 #' midalpha, beta, sigma2, phi,

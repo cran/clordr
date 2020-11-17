@@ -14,6 +14,8 @@
 #'
 #' @references Varin, C. and Vidoni, P. (2005) A note on composite likelihood inference and model selection. \emph{Biometrika} 92: 519--528.
 #'
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @export
 
 clic <- function(logCL,mat.hessian,mat.J){
   2*(-logCL + sum(diag(solve(mat.hessian)%*%mat.J)))

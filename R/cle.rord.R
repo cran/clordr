@@ -10,7 +10,7 @@
 #' @param n.sim number of simulation used for parametric bootstrapping (and hence used for asymptotic variance and standard error).
 #' @param output logical flag indicates whether printing out result (default: \code{TRUE}).
 #' @param SE logical flag for detailed output.
-#' @param parallel logical flag indicates using parallel processing (default: \code{TRUE}).
+#' @param parallel logical flag indicates using parallel processing (default: \code{FALSE}).
 #' @param n.core number of physical cores used for parallel processing (when \code{parallel} is \code{TRUE}, default value is \code{max(detectCores()/2,1)}).
 #' @param est.method logical flag (default) \code{TRUE} for rootsolve and \code{FALSE} for L-BFGS-B.
 #' @param maxiter maximum number of iterations in the root solving of gradient function (dafault: 100).
@@ -27,11 +27,12 @@
 #' @return \code{mat.Hessian}: Hessian matrix at the parameter estimate;
 #' @return \code{mat.J}: Sensitivity matrix estimated by parametric boostrapping; and
 #' @return \code{CLIC}: Composite likelihood information criterion (see help manual of \code{clic()} for detail).
-
 #'
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @export
 #' @examples
 #' set.seed(1228)
-#' n.subject <- 50
+#' n.subject <- 20
 #' n.lat <- n.lon <- 10
 #' n.site <- n.lat*n.lon
 #'
@@ -52,23 +53,23 @@
 #' location <- cbind(rep(seq(1,n.lat,length=n.lat),n.lat),rep(1:n.lon, each=n.lon))
 #' sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, phi, sigma2, covar=VV, location)
 #'
-#' \dontrun{
+#' \donttest{
 #' options(digits=3)
 #' result <- cle.rord(response=sim.data[[1]], covar=VV,
-#'           location ,radius = 4, n.sim = 100, output = TRUE, n.core = 4)
+#'           location ,radius = 4, n.sim = 100, output = TRUE, parallel=TRUE, n.core =2)
 #' result$vec.par
 #' # alpha2  alpha3   beta0   beta1   beta2     phi sigma^2
-#' # 1.175   2.217   1.028   2.036  -1.053   0.586   0.681
+#' # 1.249   2.319   1.169   1.990  -1.000   0.668   0.678
 #'
 #' result$vec.se
 #' # alpha2  alpha3   beta0   beta1   beta2     phi sigma^2
-#' # 0.0514  0.0873  0.0963  0.1144  0.0462  0.0281  0.0620
+#' # 0.0704  0.1201  0.1370  0.2272  0.0767  0.0346  0.1050
 #'
 #' }
 #'
 
 cle.rord <- function(response, covar, location ,radius=4, n.sim=100, output = TRUE, SE = TRUE,
-                     parallel = TRUE, n.core = max(detectCores()/2,1),
+                     parallel = FALSE, n.core = max(detectCores()/2,1),
                      ini.sp = c(0.5,0.5), est.method = TRUE, maxiter = 100, rtol = 1e-6, factr = 1e7) {
 
   n <- ncol(response) ; N <- nrow(response) ; J <- length(levels(factor(response))) ; p <- NCOL(covar)
@@ -161,13 +162,13 @@ cle.rord <- function(response, covar, location ,radius=4, n.sim=100, output = TR
       n.core <- max(parallel::detectCores()/2,1)
     }
 
-    cl <- parallel::makeCluster(n.core)
-    doParallel::registerDoParallel(cl)
+    cl_cluster <- parallel::makeCluster(n.core)
+    doParallel::registerDoParallel(cl_cluster)
     mat.J <- cov(foreach(i = 1:n.sim, .export="cl", .combine=rbind) %dopar% {
       dfun(theta=vec.par, response=sim.tmp[[i]],covar=covar)
     })
 
-    stopCluster(cl)
+    stopCluster(cl_cluster)
 
     options(warn=0) # Resume warning message
 

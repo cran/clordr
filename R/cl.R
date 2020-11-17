@@ -15,6 +15,8 @@
 #'
 #' @return \code{cl} returns a list: composite log-likelihood value and a vector of first-order partial derivatives for \code{theta}.
 #'
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @export
 
 
 cl<-function(theta,y,X,dwdv,cmwdv,lt,wn,base,J,p) {
