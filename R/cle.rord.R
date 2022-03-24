@@ -28,7 +28,7 @@
 #' @return \code{mat.J}: Sensitivity matrix estimated by parametric boostrapping; and
 #' @return \code{CLIC}: Composite likelihood information criterion (see help manual of \code{clic()} for detail).
 #'
-#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats
 #' @export
 #' @examples
 #' set.seed(1228)
@@ -56,7 +56,7 @@
 #' \donttest{
 #' options(digits=3)
 #' result <- cle.rord(response=sim.data[[1]], covar=VV,
-#'           location ,radius = 4, n.sim = 100, output = TRUE, parallel=TRUE, n.core =2)
+#'           location = location ,radius = 4, n.sim = 100, output = TRUE, parallel=TRUE, n.core =2)
 #' result$vec.par
 #' # alpha2  alpha3   beta0   beta1   beta2     phi sigma^2
 #' # 1.249   2.319   1.169   1.990  -1.000   0.668   0.678

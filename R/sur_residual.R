@@ -20,7 +20,7 @@
 #' @return \code{surrogate.residual} returns a (no. spatial site * no. subject) matrix contains
 #' raw surrogate residuals with element corresponds to the response matrix.
 #'
-#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats
 #' @export
 #'
 #' @examples

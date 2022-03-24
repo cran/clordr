@@ -15,7 +15,7 @@
 #'
 #' @return \code{sim.rord} returns a list (length \code{n.rep}) of matrix (\code{n.subject*n.site}) with the underlying parameter as inputs.
 #'
-#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats
 #'
 #' @export
 #'

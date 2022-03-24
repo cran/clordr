@@ -11,7 +11,7 @@
 #'
 #' @return \code{cl.rord} returns a list: negative composite log-likelihood, a vector of first-order partial derivatives for \code{theta}.
 #'
-#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats
 #' @export
 #' @examples
 #' set.seed(1203)

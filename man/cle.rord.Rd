@@ -97,7 +97,7 @@ sim.data <- sim.rord(n.subject, n.site, n.rep = 2, midalpha, beta, phi, sigma2, 
 \donttest{
 options(digits=3)
 result <- cle.rord(response=sim.data[[1]], covar=VV,
-          location ,radius = 4, n.sim = 100, output = TRUE, parallel=TRUE, n.core =2)
+          location = location ,radius = 4, n.sim = 100, output = TRUE, parallel=TRUE, n.core =2)
 result$vec.par
 # alpha2  alpha3   beta0   beta1   beta2     phi sigma^2
 # 1.249   2.319   1.169   1.990  -1.000   0.668   0.678

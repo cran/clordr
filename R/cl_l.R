@@ -16,7 +16,7 @@
 #'
 #' @return \code{cl} returns a list: composite log-likelihood value and a vector of first-order partial derivatives for \code{theta}.
 #'
-#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats ttutils
+#' @import pbivnorm  MASS rootSolve parallel doParallel foreach tmvmixnorm utils stats
 #' @export
 
 cl_l<-function(theta,y,X,dwdv,cmwdv,lt,wn,base,J,p) {
@@ -29,11 +29,11 @@ cl_l<-function(theta,y,X,dwdv,cmwdv,lt,wn,base,J,p) {
 
   for (j in 0:(J-1)) {
     for (k in 0:(J-1)) {
-      A1lo = merge(A1lo,list(base[j+1,]))
-      A1hi = merge(A1hi,list(base[j+2,]))
-      Idx = merge(Idx, list(which(pairy[1,]==j&pairy[2,]==k)))##among those neighbour pairs
-      A2lo = merge(A2lo,list(base[k+1,]))
-      A2hi = merge(A2hi, list(base[k+2,]))
+      A1lo = merge.list(A1lo,list(base[j+1,]))
+      A1hi = merge.list(A1hi,list(base[j+2,]))
+      Idx = merge.list(Idx, list(which(pairy[1,]==j&pairy[2,]==k)))##among those neighbour pairs
+      A2lo = merge.list(A2lo,list(base[k+1,]))
+      A2hi = merge.list(A2hi, list(base[k+2,]))
     }
   }
   Ldx = rapply(Idx,function(x) length(x),how="list")
